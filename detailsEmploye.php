@@ -44,31 +44,40 @@ if (isset($_GET['id'])) {
 
     <style>
         .image-container {
-    width: 200px; /* Définir la largeur souhaitée du cadre */
-    height: 200px; /* Définir la hauteur souhaitée du cadre */
-    overflow: hidden; /* Empêcher le débordement du contenu */
-    margin: 0 auto; /* Centrer horizontalement le cadre */
-    border-radius: 50%; /* Rendre le cadre circulaire */
-    border: 2px solid #ccc; /* Ajouter une bordure */
-}
+            width: 200px;
+            /* Définir la largeur souhaitée du cadre */
+            height: 200px;
+            /* Définir la hauteur souhaitée du cadre */
+            overflow: hidden;
+            /* Empêcher le débordement du contenu */
+            margin: 0 auto;
+            /* Centrer horizontalement le cadre */
+            border-radius: 50%;
+            /* Rendre le cadre circulaire */
+            border: 2px solid #ccc;
+            /* Ajouter une bordure */
+        }
 
-.profile-image {
-    width: 100%; /* Assurer que l'image occupe toute la largeur du cadre */
-    height: auto; /* Adapter la hauteur en fonction de la largeur */
-    display: block; /* Assurer que l'image est centrée verticalement */
-    margin: 0 auto; /* Centrer l'image horizontalement */
-}
-
+        .profile-image {
+            width: 100%;
+            /* Assurer que l'image occupe toute la largeur du cadre */
+            height: auto;
+            /* Adapter la hauteur en fonction de la largeur */
+            display: block;
+            /* Assurer que l'image est centrée verticalement */
+            margin: 0 auto;
+            /* Centrer l'image horizontalement */
+        }
     </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
-    
+
     <div class="wrapper">
-          <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="img/logo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="img/logo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
         <!-- Navbar -->
         <?php include_once 'navbar.php'; ?>
         <!-- Sidebar -->
@@ -92,68 +101,73 @@ if (isset($_GET['id'])) {
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                    <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Informations de l'employé</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <!-- Afficher la photo de l'employé -->
-                            <div class="text-center">
-                                <div class="image-container">
-                                    <img src="<?php echo $employe['PhotoIdentite']; ?>" class="profile-image" alt="Photo de l'employé">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Informations de l'employé</h3>
                                 </div>
-                            </div>
-                            <p><strong>Matricule:</strong> <?php echo $employe['Matricule']; ?></p>
-                            <p><strong>Code CNSS:</strong> <?php echo $employe['CodeCNSS']; ?></p>
-                            <p><strong>Nom:</strong> <?php echo $employe['Nom']; ?></p>
-                            <p><strong>Prénom:</strong> <?php echo $employe['Prenom']; ?></p>
-                            <p><strong>Date de Naissance:</strong> <?php echo $employe['DateNaissance']; ?></p>
-                            <p><strong>Téléphone:</strong> <?php echo $employe['Telephone']; ?></p>
-                            <p><strong>Adresse:</strong> <?php echo $employe['Adresse']; ?></p>
-                            <p><strong>Situation Familiale:</strong> <?php echo $employe['SituationFamiliale']; ?></p>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Autres actions</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <!-- Liens stylisés avec des icônes -->
-                                <div class="d-flex justify-content-between align-items-center">
-                                <a href="gestion_contrats.php?id=<?php echo $employe_id; ?>" class="text-decoration-none">
-                                    <div>
-                                        <i class="fas fa-file-contract mr-2"></i>
-                                        <span>Gestion Contrat</span>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <!-- Afficher la photo de l'employé -->
+                                    <div class="text-center">
+                                        <div class="image-container">
+                                            <img src="<?php echo $employe['PhotoIdentite']; ?>" class="profile-image"
+                                                alt="Photo de l'employé">
+                                        </div>
                                     </div>
-                                </a>
-                                    </a>
-                                    <a href="gestionConge.php?id=<?php echo $employe_id; ?>" class="text-decoration-none">
-                                        <div>
-                                            <i class="fas fa-file-contract mr-2"></i>
-                                            <span>Gestion Congé</span>
-                                        </div>
-                                    </a>
-                                    <a href="gestion_employes.php" class="text-decoration-none">
-                                        <div>
-                                            <i class="fas fa-users mr-2"></i>
-                                            <span>Gestion Employé</span>
-                                        </div>
-                                    </a>
+                                    <p><strong>Matricule:</strong> <?php echo $employe['Matricule']; ?></p>
+                                    <p><strong>Code CNSS:</strong> <?php echo $employe['CodeCNSS']; ?></p>
+                                    <p><strong>Nom:</strong> <?php echo $employe['Nom']; ?></p>
+                                    <p><strong>Prénom:</strong> <?php echo $employe['Prenom']; ?></p>
+                                    <p><strong>Date de Naissance:</strong> <?php echo $employe['DateNaissance']; ?></p>
+                                    <p><strong>Téléphone:</strong> <?php echo $employe['Telephone']; ?></p>
+                                    <p><strong>Adresse:</strong> <?php echo $employe['Adresse']; ?></p>
+                                    <p><strong>Situation Familiale:</strong>
+                                        <?php echo $employe['SituationFamiliale']; ?></p>
                                 </div>
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card-body -->
+                            <!-- /.card -->
                         </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Autres actions</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <!-- Liens stylisés avec des icônes -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="gestion_contrats.php?id=<?php echo $employe_id; ?>"
+                                            class="text-decoration-none">
+                                            <div>
+                                                <i class="fas fa-file-contract mr-2"></i>
+                                                <span>Gestion Contrat</span>
+                                            </div>
+                                        </a>
+                                        </a>
+                                        <a href="gestionConge.php?id=<?php echo $employe_id; ?>"
+                                            class="text-decoration-none">
+                                            <div>
+                                                <i class="fas fa-file-contract mr-2"></i>
+                                                <span>Gestion Congé</span>
+                                            </div>
+                                        </a>
+                                        <a href="gestion_employes.php?id=<?php echo $employe_id; ?>"
+                                            class="text-decoration-none">
+                                            <div>
+                                                <i class="fas fa-users mr-2"></i>
+                                                <span>Gestion Employé</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
 
 
-                        <!-- /.card -->
-                    </div>
+                            <!-- /.card -->
+                        </div>
                     </div>
                     <!-- /.row -->
                 </div>
@@ -175,43 +189,43 @@ if (isset($_GET['id'])) {
     <!-- ./wrapper -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
 
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
 
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
 </body>
 
 </html>

@@ -49,7 +49,7 @@ if (isset($_GET['id'])) {
             $jours_conge_restants -= $jours_demandes;
             header("Location: gestionConge.php?id=" . $employe_id);
             exit();
-            
+
         } else {
             $error_message = "Le nombre de jours demandés dépasse les jours de congé restants.";
         }
@@ -78,6 +78,7 @@ function mettreAJourStatutCongesTermines($conn)
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,16 +88,19 @@ function mettreAJourStatutCongesTermines($conn)
     <style>
         /* CSS pour définir une hauteur fixe et activer le défilement */
         .scrollable-card {
-            max-height: 500px; /* Hauteur maximale de la carte */
-            overflow-y: auto; /* Activer le défilement vertical si nécessaire */
+            max-height: 500px;
+            /* Hauteur maximale de la carte */
+            overflow-y: auto;
+            /* Activer le défilement vertical si nécessaire */
         }
     </style>
 </head>
+
 <body class="hold-transition sidebar-mini">
-      <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="img/logo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="img/logo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
     <div class="wrapper">
         <!-- Navbar -->
         <?php include_once 'navbar.php'; ?>
@@ -111,13 +115,14 @@ function mettreAJourStatutCongesTermines($conn)
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card h-100">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Congés en cours</h3>
-                                <span class="<?php echo ($jours_conge_restants >= 0) ? 'text-success' : 'text-danger'; ?>">
-    <?php echo $jours_conge_restants; ?> jour(s) restant(s)
-</span>
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h3 class="card-title">Congés en cours</h3>
+                                    <span
+                                        class="<?php echo ($jours_conge_restants >= 0) ? 'text-success' : 'text-danger'; ?>">
+                                        <?php echo $jours_conge_restants; ?> jour(s) restant(s)
+                                    </span>
 
-                            </div>
+                                </div>
 
                                 <!-- /.card-header -->
                                 <div class="card-body scrollable-card">
@@ -165,15 +170,18 @@ function mettreAJourStatutCongesTermines($conn)
                                     <form action="" method="post">
                                         <div class="form-group">
                                             <label for="type_conge">Type de congé:</label>
-                                            <input type="text" id="type_conge" name="type_conge" class="form-control" required>
+                                            <input type="text" id="type_conge" name="type_conge" class="form-control"
+                                                required>
                                         </div>
                                         <div class="form-group">
                                             <label for="date_debut">Date de début:</label>
-                                            <input type="date" id="date_debut" name="date_debut" class="form-control" required>
+                                            <input type="date" id="date_debut" name="date_debut" class="form-control"
+                                                required>
                                         </div>
                                         <div class="form-group">
                                             <label for="date_fin">Date de fin:</label>
-                                            <input type="date" id="date_fin" name="date_fin" class="form-control" required>
+                                            <input type="date" id="date_fin" name="date_fin" class="form-control"
+                                                required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Ajouter Congé</button>
                                         <?php if (isset($error_message)): ?>
@@ -214,38 +222,39 @@ function mettreAJourStatutCongesTermines($conn)
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
     <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
 
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
 </body>
+
 </html>
