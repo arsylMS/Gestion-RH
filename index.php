@@ -46,6 +46,7 @@
           <label for="password">Mot de passe :</label>
           <input type="password" id="password" name="password" required>
         </div>
+        <p>tetetete</p>
         <button type="submit">Se connecter</button>
       </form>
     </div>

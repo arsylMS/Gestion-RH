@@ -1,13 +1,17 @@
 <?php
-session_start(); 
+session_start(); // Démarre la session
 
 require_once('config.php');
 
+// Vérifie si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
 
         $connexion = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASSWORD);
+
         $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
         $matricule = $_POST['matricule'];
         $codeCNSS = $_POST['code_cnss'];
         $nom = $_POST['nom'];
@@ -29,9 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "Une erreur s'est produite lors du téléchargement de la photo d'identité.";
             }
         }
+
+
         $requete = $connexion->prepare('INSERT INTO Employe (Matricule, CodeCNSS, Nom, Prenom, DateNaissance, Telephone, Adresse, SituationFamiliale, PhotoIdentite) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $requete->execute([$matricule, $codeCNSS, $nom, $prenom, $dateNaissance, $telephone, $adresse, $situationFamiliale, $photo_identite_path]);
         
+
+        $requete->execute([$matricule, $codeCNSS, $nom, $prenom, $dateNaissance, $telephone, $adresse, $situationFamiliale, $photo_identite_path]);
+
+
         header('Location: ajouter_employe.php');
         exit(); // 
     } catch(PDOException $e) {
